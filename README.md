@@ -5,6 +5,8 @@ so names stay clean without losing the sorting trick.
 
 `00 System` → `System` + badge `00`
 
+![demo](demo.gif)
+
 ## Why
 
 Many people prefix notes with numbers (`00`, `01`, ...) to force a custom order
