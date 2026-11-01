@@ -1,0 +1,9 @@
+{
+  "id": "num-badge",
+  "name": "Number Badge",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Показывает ведущие цифры из имени файла отдельным бейджем справа.",
+  "author": "you",
+  "isDesktopOnly": false
+}

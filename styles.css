@@ -1,0 +1,8 @@
+.nb-num-badge {
+  margin-left: auto;
+  padding-left: 8px;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
