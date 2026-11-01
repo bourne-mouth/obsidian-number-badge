@@ -26,11 +26,16 @@ displayed name, showing them as a badge on the right — similar to the built-in
 
 Manual installation:
 
-1. Download `main.js`, `manifest.json` and `styles.css` from the latest release.
+1. Open the [latest release](../../releases/latest) and download
+   `main.js`, `manifest.json` and `styles.css`.
+
+   ⚠️ Do **not** use the green **Code → Download ZIP** button — that
+   downloads the whole repository, which will not work as a plugin.
+
 2. Create the folder `<your-vault>/.obsidian/plugins/num-badge/`.
 3. Put the three files inside.
-4. Reload Obsidian and enable **Number Badge** in
-   Settings → Community plugins.
+4. Reload Obsidian, enable **Number Badge** in
+   Settings → Community plugins (turn off Restricted mode if asked).
 
 ## Limitations
 
