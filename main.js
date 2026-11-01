@@ -2,7 +2,7 @@
 
 const { Plugin } = require('obsidian');
 
-// "00 Система" -> ["00", "Система"]
+// "00 System" -> ["00", "System"]
 const PREFIX_RE = /^(\d{1,3})\s+(.+)$/;
 
 module.exports = class NumberBadgePlugin extends Plugin {
@@ -32,6 +32,7 @@ module.exports = class NumberBadgePlugin extends Plugin {
       delete title.dataset.nbOrig;
       delete title.dataset.nbRest;
       delete title.dataset.nbApplied;
+      delete title.dataset.nbPath;
     });
   }
 
@@ -46,15 +47,21 @@ module.exports = class NumberBadgePlugin extends Plugin {
       if (!content) return;
 
       const current = content.textContent || '';
+      const path = title.dataset.path || '';
 
-      // Уже обработан — проверяем, не переименовали ли файл.
+      // Already processed — check whether the file was renamed.
       if (title.dataset.nbApplied === '1') {
-        if (current === title.dataset.nbRest) return;
+        const sameName = current === title.dataset.nbRest;
+        const samePath = path === title.dataset.nbPath;
+        if (sameName && samePath) return;
+
         const old = title.querySelector('.nb-num-badge');
         if (old) old.remove();
+
         delete title.dataset.nbApplied;
         delete title.dataset.nbRest;
         delete title.dataset.nbOrig;
+        delete title.dataset.nbPath;
       }
 
       const match = current.match(PREFIX_RE);
@@ -70,6 +77,7 @@ module.exports = class NumberBadgePlugin extends Plugin {
 
       title.dataset.nbApplied = '1';
       title.dataset.nbRest = match[2];
+      title.dataset.nbPath = path;
     });
   }
 };
